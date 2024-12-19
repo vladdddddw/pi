@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестування</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <form>
+        <!-- Питання 1 -->
+        <h2>Питання 1: Яка тварина літає?</h2>
+        <label><input type="radio" name="question1" value="1"> Заєць</label><br>
+        <label><input type="radio" name="question1" value="2"> Орел</label><br>
+        <p>Результат: <span id="selectedAnswer1"></span></p>
+        <p>Бали: <span id="score1"></span></p>
+
+        <!-- Питання 2 -->
+        <h2>Питання 2: Які числа є кратними 5?</h2>
+        <label><input type="checkbox" name="question2" value="1"> 10</label><br>
+        <label><input type="checkbox" name="question2" value="1"> 15</label><br>
+        <label><input type="checkbox" name="question2" value="0"> 12</label><br>
+        <label><input type="checkbox" name="question2" value="0"> 14</label><br>
+        <p>Результат: <span id="selectedAnswer2"></span></p>
+        <p>Бали: <span id="score2"></span></p>
+
+        <!-- Питання 3 -->
+        <h2>Питання 3: Скільки днів у лютому (невисокосний рік)?</h2>
+        <select name="question3">
+            <option value="0">28</option>
+            <option value="1">29</option>
+            <option value="0">30</option>
+        </select>
+        <p>Результат: <span id="selectedAnswer3"></span></p>
+        <p>Бали: <span id="score3"></span></p>
+
+        <!-- Питання 4 -->
+        <h2>Питання 4: Яке місто є столицею України?</h2>
+        <input type="text" name="question4" id="question4" placeholder="Введіть відповідь">
+        <p>Результат: <span id="selectedAnswer4"></span></p>
+        <p>Бали: <span id="score4"></span></p>
+
+        <!-- Питання 5 -->
+        <h2>Питання 5: Виберіть правильні операції, що дорівнюють 10</h2>
+        <select name="question5" multiple>
+            <option value="1">5 + 5</option>
+            <option value="1">8 + 2</option>
+            <option value="0">7 + 4</option>
+            <option value="0">3 + 6</option>
+        </select>
+        <p>Результат: <span id="selectedAnswer5"></span></p>
+        <p>Бали: <span id="score5"></span></p>
+
+        <!-- Питання 6 -->
+        <h2>Питання 6: Виберіть колір українського прапора</h2>
+        <label><input type="radio" name="question6" value="0"> Зелений</label><br>
+        <label><input type="radio" name="question6" value="1"> Синьо-жовтий</label><br>
+        <label><input type="radio" name="question6" value="0"> Червоний</label><br>
+        <p>Результат: <span id="selectedAnswer6"></span></p>
+        <p>Бали: <span id="score6"></span></p>
+
+        <button type="button" onclick="calculateScore()">Підрахувати результат</button>
+
+        <h2>Результати тестування</h2>
+        <table border="1">
+            <tr>
+                <th>Питання</th>
+                <th>Обрані відповіді</th>
+                <th>Бали</th>
+            </tr>
+            <tr>
+                <td>Питання 1</td>
+                <td id="selectedAnswer1"></td>
+                <td id="score1"></td>
+            </tr>
+            <tr>
+                <td>Питання 2</td>
+                <td id="selectedAnswer2"></td>
+                <td id="score2"></td>
+            </tr>
+            <tr>
+                <td>Питання 3</td>
+                <td id="selectedAnswer3"></td>
+                <td id="score3"></td>
+            </tr>
+            <tr>
+                <td>Питання 4</td>
+                <td id="selectedAnswer4"></td>
+                <td id="score4"></td>
+            </tr>
+            <tr>
+                <td>Питання 5</td>
+                <td id="selectedAnswer5"></td>
+                <td id="score5"></td>
+            </tr>
+            <tr>
+                <td>Питання 6</td>
+                <td id="selectedAnswer6"></td>
+                <td id="score6"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Загальний бал:</td>
+                <td id="totalScore"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

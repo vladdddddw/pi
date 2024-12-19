@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота 6</title>
+</head>
+<body>
+    <h2>Реєстраційна форма</h2>
+    <form id="registrationForm" method="post">
+        <label for="email">Адреса електронної пошти (e-mail):</label>
+        <input type="email" id="email" name="email" required>
+        <span id="emailFeedback"></span><br>
+
+        <label for="name">Ім'я та прізвище:</label>
+        <input type="text" id="name" name="name" required>
+        <span id="nameFeedback"></span><br>
+
+        <label for="login">Логін:</label>
+        <input type="text" id="login" name="login" required>
+        <span id="loginFeedback"></span><br>
+
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+        <span id="passwordFeedback"></span><br>
+
+        <label for="postal-code">Поштовий індекс:</label>
+        <input type="text" id="postal-code" name="postal-code" required>
+        <span id="postalCodeFeedback"></span><br>
+
+        <button type="button" onclick="validateForm()">Перевірити</button>
+    </form>
+
+    <hr>
+    <h3>Розбір e-mail:</h3>
+    <div id="emailAnalysis"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота 8</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #0056b3;
+        }
+
+        section {
+            margin: 20px auto;
+            padding: 15px;
+            max-width: 800px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            color: #444;
+        }
+
+        button {
+            background-color: #28a745; /* Зелений колір */
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 5px 0;
+        }
+
+        button:hover {
+            background-color: #218838; /* Темніший зелений при наведенні */
+        }
+
+        input {
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .output {
+            background-color: #f1f3f5;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #333;
+        }
+
+        .form-group {
+            margin: 15px 0;
+        }
+    </style>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Лабораторна робота 8</h1>
+    <h2>JavaScript: Робота з об'єктами. Вбудований об’єкт Date</h2>
+
+    <section>
+        <h2>Завдання 1</h2>
+        <div class="form-group">
+            <h3>1.1 Виведення поточного часу</h3>
+            <p id="current-time" class="output"></p>
+            <button onclick="showCurrentTime()">Вивести час</button>
+        </div>
+        <div class="form-group">
+            <h3>1.2 Зміна часу (секунди)</h3>
+            <input type="number" id="change-seconds" placeholder="Кількість секунд">
+            <button onclick="changeSeconds()">Змінити секунди</button>
+        </div>
+        <div class="form-group">
+            <h3>1.3 Зміна часу (хвилини)</h3>
+            <input type="number" id="change-minutes" placeholder="Кількість хвилин">
+            <button onclick="changeMinutes()">Змінити хвилини</button>
+        </div>
+        <div class="form-group">
+            <h3>1.4 Зміна часу (години)</h3>
+            <input type="number" id="change-hours" placeholder="Кількість годин">
+            <button onclick="changeHours()">Змінити години</button>
+        </div>
+    </section>
+
+    <section>
+        <h2>Завдання 2</h2>
+        <div class="form-group">
+            <h3>2.1 Виведення поточної дати, дня тижня і часу</h3>
+            <button onclick="showCurrentDateTime()">Виконати</button>
+            <p id="current-date-time" class="output"></p>
+        </div>
+        <div class="form-group">
+            <h3>2.2 Виведення дня і номера тижня</h3>
+            <button onclick="getDayInfo()">Виконати</button>
+            <p id="day-info" class="output"></p>
+        </div>
+        <div class="form-group">
+            <h3>2.3 Дата N днів назад чи вперед</h3>
+            <input type="number" id="days-shift" placeholder="Кількість днів">
+            <button onclick="shiftDate()">Виконати</button>
+            <p id="shifted-date" class="output"></p>
+        </div>
+        <div class="form-group">
+            <h3>2.4 Останній день місяця</h3>
+            <input type="number" id="year" placeholder="Рік">
+            <input type="number" id="month" placeholder="Місяць (1-12)">
+            <button onclick="getLastDayOfMonth()">Виконати</button>
+            <p id="last-day" class="output"></p>
+        </div>
+        <div class="form-group">
+            <h3>2.5 Кількість секунд</h3>
+            <button onclick="getSecondsInfo()">Виконати</button>
+            <p id="seconds-info" class="output"></p>
+        </div>
+        <div class="form-group">
+            <h3>2.6 Інформація про дату</h3>
+            <input type="text" id="input-date" placeholder="дд.мм.рррр год:хв">
+            <button onclick="processInputDate()">Виконати</button>
+            <p id="date-info" class="output"></p>
+        </div>
+    </section>
+</body>
+</html>

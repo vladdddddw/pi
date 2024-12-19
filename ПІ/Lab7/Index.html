@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Робота з рядками та масивами</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            background-color: #f0f4f8;
+            color: #34495e;
+            margin: 20px;
+            padding: 0;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1rem;
+            color: #2c3e50;
+        }
+
+        input, button, textarea {
+            margin: 10px;
+            padding: 12px;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #dfe6e9;
+            width: 80%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(1);
+        }
+
+        .output {
+            background-color: #ecf0f1;
+            padding: 12px;
+            margin: 10px auto;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            width: 80%;
+            max-width: 400px;
+            word-wrap: break-word;
+        }
+
+        .form-section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .form-section h2 {
+            margin-top: 0;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-section">
+        <h2>Завдання 1: Робота з Рядками та Масивами</h2>
+
+        <label for="inputSequence">Введіть послідовність чисел (розділені комою):</label>
+        <input type="text" id="inputSequence">
+        <button onclick="reverseSequence()">Обернути послідовність</button>
+        <p id="outputSequence" class="output"></p>
+
+        <label for="inputArray">Введіть масив чисел (розділені комою):</label>
+        <input type="text" id="inputArray">
+        <button onclick="removeZeros()">Вилучити нулі</button>
+        <p id="outputArray" class="output"></p>
+
+        <label for="inputText">Введіть текст:</label>
+        <input type="text" id="inputText">
+        <button onclick="reverseText()">Обернути текст</button>
+        <p id="outputText" class="output"></p>
+
+        <label for="inputSentence">Введіть речення:</label>
+        <input type="text" id="inputSentence" value="Я не люблю морозиво">
+        <button onclick="modifySentence()">Змінити речення</button>
+        <p id="outputSentence" class="output"></p>
+    </div>
+
+    <div class="form-section">
+        <h2>Робота з рядками</h2>
+        <label for="string1">Введіть перший рядок:</label>
+        <input type="text" id="string1">
+        <label for="string2">Введіть другий рядок:</label>
+        <input type="text" id="string2">
+        <button onclick="compareStrings()">Порівняти рядки за довжиною</button>
+        <p id="outputComparison" class="output"></p>
+
+        <label for="searchString">Введіть рядок для пошуку:</label>
+        <input type="text" id="searchString">
+        <label for="searchChar">Введіть символ для пошуку:</label>
+        <input type="text" id="searchChar">
+        <button onclick="searchCharInString()">Знайти символ у рядку</button>
+        <p id="outputSearch" class="output"></p>
+
+        <label for="capitalizeString">Введіть рядок для перетворення:</label>
+        <input type="text" id="capitalizeString">
+        <button onclick="capitalizeFirstChar()">Перетворити перший символ у верхній регістр</button>
+        <p id="outputCapitalize" class="output"></p>
+
+        <label for="vowelsString">Введіть рядок для підрахунку голосних:</label>
+        <input type="text" id="vowelsString">
+        <button onclick="countVowels()">Підрахувати голосні</button>
+        <p id="outputVowels" class="output"></p>
+
+        <label for="spamString">Введіть рядок для перевірки на спам:</label>
+        <input type="text" id="spamString">
+        <button onclick="checkForSpam()">Перевірити на спам</button>
+        <p id="outputSpam" class="output"></p>
+    </div>
+
+    <div class="form-section">
+        <h2>Регулярні вирази</h2>
+        <label for="camelCaseInput">Введіть ім'я змінної у Snake case:</label>
+        <input type="text" id="camelCaseInput">
+        <button onclick="toCamelCase()">Перетворити в Camel case</button>
+        <p id="outputCamelCase" class="output"></p>
+
+        <label for="snakeCaseInput">Введіть ім'я змінної у Camel case:</label>
+        <input type="text" id="snakeCaseInput">
+        <button onclick="toSnakeCase()">Перетворити в Snake case</button>
+        <p id="outputSnakeCase" class="output"></p>
+
+        <label for="dateFormatInput">Введіть текст для заміни дат:</label>
+        <textarea id="dateFormatInput"></textarea>
+        <button onclick="replaceDateFormats()">Замінити дати у тексті</button>
+        <p id="outputDateFormat" class="output"></p>
+    </div>
+
+    <footer>
+        <p>Створено для лабораторних робіт. <a href="#">Детальніше</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

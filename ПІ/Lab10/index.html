@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 10 - Modern Design</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        /* Загальний фон */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Стилі заголовка */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Абзаци */
+        p {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        /* Блок спеціальних дій */
+        #specialDiv {
+            width: 300px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            margin: 20px 0;
+            line-height: 120px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        #specialDiv:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        /* Кнопки */
+        button {
+            margin: 10px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            color: white;
+            background: #ff5f6d;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background: #ffc371;
+            transform: scale(1.05);
+        }
+
+        /* Посилання для зображення */
+        a {
+            color: #00c6ff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #ff5f6d;
+        }
+
+        /* Зображення */
+        #image {
+            display: none;
+            width: 300px;
+            height: auto;
+            margin-top: 20px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Форма */
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            width: 250px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="submit"] {
+            margin-top: 10px;
+            padding: 12px 25px;
+            font-size: 1rem;
+            color: white;
+            background: #2b5876;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background: #4e4376;
+        }
+
+        #validationMessage {
+            margin-top: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        #validationMessage.success {
+            color: #81c784;
+        }
+
+        #validationMessage.error {
+            color: #e57373;
+        }
+    </style>
+</head>
+<body>
+    <h1>Лабораторна робота 10</h1>
+    <p id="firstParagraph">Цей текст буде змінено на "DOM first!"</p>
+    <p id="lastParagraph">Цей текст буде змінено на "DOM last!"</p>
+
+    <div id="specialDiv">Натисніть або двічі клацніть тут</div>
+
+    <button id="singleClickBtn">Одинарний клік</button>
+    <button id="doubleClickBtn">Подвійний клік</button>
+
+    <p>
+        <a href="#" id="showImage">Показати зображення</a>
+    </p>
+    <img id="image" src="https://cdn.discordapp.com/attachments/1156538232041902120/1319116782690238464/image1.jpg?ex=6764cabc&is=6763793c&hm=95e5aeaf5d0eb9f7ac736c891f26411dd4dc95b8fb56b6862857761f0d07ca5e&" alt="Demo Image">
+
+    <p>Введіть у текстове поле слово 'correct'.</p>
+    <form id="validationForm" action="javascript:void(0);">
+        <input type="text" id="userInput" placeholder="Введіть текст..." />
+        <input type="submit" value="Перевірити" />
+    </form>
+    <span id="validationMessage"></span>
+
+    <script>
+        $(document).ready(function () {
+            // Завдання 1: Зміна тексту першого і останнього абзаців
+            $("#firstParagraph").text("DOM first!");
+            $("#lastParagraph").text("DOM last!");
+
+            // Завдання 2: Додавання hover-ефекту
+            $("#specialDiv").hover(
+                function () {
+                    $(this).addClass("hover-style");
+                },
+                function () {
+                    $(this).removeClass("hover-style");
+                }
+            );
+
+            // Завдання 3.1: Одинарний і подвійний клік
+            $("#specialDiv").on("click", function () {
+                $(this).text("Одинарний клік!");
+            }).on("dblclick", function () {
+                $(this).text("Подвійний клік!").removeClass("hover-style");
+            });
+
+            // Завдання 3.2: Відображення повідомлення для кнопок
+            $("#singleClickBtn").click(function () {
+                alert("Одинарний клік");
+            });
+            $("#doubleClickBtn").dblclick(function () {
+                alert("Подвійний клік");
+            });
+
+            // Завдання 3.3: Відображення і приховування зображення
+            $("#showImage").click(function (e) {
+                e.preventDefault();
+                $("#image").fadeToggle();
+            });
+
+            // Завдання 3.4: Перевірка введених даних
+            $("#validationForm").submit(function () {
+                const userInput = $("#userInput").val();
+                const validationMessage = $("#validationMessage");
+                if (userInput.toLowerCase() === "correct") {
+                    validationMessage.text("Успішно!").addClass("success").removeClass("error");
+                } else {
+                    validationMessage.text("Неправильно!").addClass("error").removeClass("success");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

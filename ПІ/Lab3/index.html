@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота 14 варіант</title>
+    <style>
+        .section { margin: 20px 0; }
+        .keyboard { display: flex; flex-wrap: wrap; max-width: 300px; }
+        .keyboard button { margin: 2px; padding: 5px; }
+        .image-viewer img { max-width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+    <!-- Завдання 1 -->
+    <div class="section" id="geometry">
+        <h2>Завдання 1: Розрахунок площ геометричних фігур</h2>
+        <label for="length">Довжина:</label>
+        <input type="number" id="length" oninput="calculateArea()" step="0.1">
+        <label for="width">Ширина:</label>
+        <input type="number" id="width" oninput="calculateArea()" step="0.1">
+        <p>Площа: <span id="area-result">0</span></p>
+    </div>
+
+    <!-- Завдання 2 і 3 -->
+    <div class="section">
+        <h2>Завдання 2 і 3: Екранна клавіатура</h2>
+        <textarea id="text-display" cols="30" rows="3" readonly></textarea>
+        <div class="keyboard" id="keyboard"></div>
+        <button onclick="toggleKeyboard()">Alt+Shift</button>
+        <button onclick="clearText()">Очистити поле</button>
+    </div>
+
+    <!-- Завдання 4 -->
+    <div class="section image-viewer">
+        <h2>Завдання 4: Перегляд зображень</h2>
+        <button onclick="prevImage()">Назад</button>
+        <button onclick="nextImage()">Вперед</button>
+        <div>
+            <img id="image-display" src="images/image1.jpg" alt="Зображення">
+        </div>
+    </div>
+
+    <!-- Завдання 5 -->
+    <div class="section">
+        <h2>Завдання 5: Арифметичні задачі</h2>
+        <p>Рахунок: <span id="score">0</span>/<span id="total">0</span></p>
+        <p id="math-question">Задача тут</p>
+        <input type="text" id="math-answer">
+        <button onclick="checkAnswer()">Перевірити</button>
+        <button onclick="nextTask()">Наступне завдання</button>
+        <p id="result-feedback"></p>
+    </div><!DOCTYPE html>
+    <html lang="uk">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Лабораторна робота 14 варіант</title>
+        <style>
+            .section { margin: 20px 0; }
+            .keyboard { display: flex; flex-wrap: wrap; max-width: 300px; }
+            .keyboard button { margin: 2px; padding: 5px; }
+            .image-viewer img {
+                max-width: 300px; /* Максимальна ширина */
+                height: auto;    /* Автоматичне співвідношення сторін */
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Завдання 1 -->
+        <div class="section" id="geometry">
+            <h2>Завдання 1: Розрахунок площ геометричних фігур</h2>
+            <label for="length">Довжина:</label>
+            <input type="number" id="length" oninput="calculateArea()" step="0.1">
+            <label for="width">Ширина:</label>
+            <input type="number" id="width" oninput="calculateArea()" step="0.1">
+            <p>Площа: <span id="area-result">0</span></p>
+        </div>
+    
+        <!-- Завдання 2 і 3 -->
+        <div class="section">
+            <h2>Завдання 2 і 3: Екранна клавіатура</h2>
+            <textarea id="text-display" cols="30" rows="3" readonly></textarea>
+            <div class="keyboard" id="keyboard"></div>
+            <button onclick="toggleKeyboard()">Alt+Shift</button>
+            <button onclick="clearText()">Очистити поле</button>
+        </div>
+    
+        <!-- Завдання 4 -->
+        <div class="section image-viewer">
+            <h2>Завдання 4: Перегляд зображень</h2>
+            <button onclick="prevImage()">Назад</button>
+            <button onclick="nextImage()">Вперед</button>
+            <div>
+                <img id="image-display" src="image1.jpg" alt="Зображення">
+            </div>
+        </div>
+    
+        <!-- Завдання 5 -->
+        <div class="section">
+            <h2>Завдання 5: Арифметичні задачі</h2>
+            <p>Рахунок: <span id="score">0</span>/<span id="total">0</span></p>
+            <p id="math-question">Задача тут</p>
+            <input type="text" id="math-answer">
+            <button onclick="checkAnswer()">Перевірити</button>
+            <button onclick="nextTask()">Наступне завдання</button>
+            <p id="result-feedback"></p>
+        </div>
+    
+        <script src="script.js"></script>
+    </body>
+    </html>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

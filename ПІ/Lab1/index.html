@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Всі Завдання</title>
+    <!-- Підключення загального JavaScript -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Завдання 1 -->
+    <h3>Завдання 1</h3>
+    <p>Це звичайний HTML абзац.</p>
+    <p id="student-info"></p>
+    <button onClick="showBirthInfo()">Click me</button>
+
+    <hr>
+
+    <!-- Завдання 2 -->
+    <h3>Завдання 2</h3>
+    <button onClick="calculation()">Розрахувати</button>
+
+    <hr>
+
+    <!-- Завдання 3 -->
+    <h3>Завдання 3</h3>
+    <form>
+        <input type="text" id="input-field" placeholder="Введіть текст тут" onBlur="onBlurEvent()" onSelect="onSelectEvent()">
+        <br><br>
+        <input type="text" id="output-field" readonly placeholder="Результат буде тут">
+    </form>
+
+    <hr>
+
+    <!-- Завдання 4 -->
+    <h3>Завдання 4</h3>
+    <form>
+        <label>a:</label>
+        <input type="number" id="a" value="1"><br><br>
+        <label>b:</label>
+        <input type="number" id="b" value="2"><br><br>
+        <label>c:</label>
+        <input type="number" id="c" value="3"><br><br>
+        <label>Результат:</label>
+        <input type="text" id="result" readonly><br><br>
+        <button type="button" onClick="calculate()">Розрахувати</button>
+    </form>
+
+    <hr>
+
+    <!-- Завдання 5 -->
+    <h3>Завдання 5</h3>
+    <form>
+        <label>a:</label>
+        <input type="number" id="a" value="2"><br><br>
+        <label>b:</label>
+        <input type="number" id="b" value="3"><br><br>
+        <label>Результат:</label>
+        <input type="text" id="result-series" readonly><br><br>
+        <button type="button" onClick="calculateSeries()">Розрахувати</button>
+    </form>
+
+    <hr>
+
+    <!-- Завдання 6 та 7 -->
+    <h3>Завдання 6 та 7</h3>
+    <form>
+        <label for="productDropdown">Оберіть товар:</label>
+        <select id="productDropdown">
+            <option value="" disabled selected>Оберіть товар</option>
+            <option value="0">Зошит</option>
+            <option value="1">Ручка</option>
+            <option value="2">Олівець</option>
+            <option value="3">Папір</option>
+        </select><br><br>
+        <button type="button" onClick="displayProductInfo()">Наявна кількість і вартість</button><br><br>
+        <label>Кількість:</label>
+        <input type="text" id="quantity" readonly><br><br>
+        <label>Ціна за одиницю:</label>
+        <input type="text" id="price" readonly><br><br>
+        <button type="button" onClick="calculateTotal()">Загальна сума</button><br><br>
+        <input type="text" id="total" readonly>
+    </form>
+</body>
+</html>
